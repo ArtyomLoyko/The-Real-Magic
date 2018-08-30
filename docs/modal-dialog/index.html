@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loading screen</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+  <script src="js/index.js" defer></script>
+</head>
+<body>
+  <section>
+    <h1>Component: Modal Dialog</h1>
+    <p>
+      In this component, the player can select 
+      the type of spell (pharmacy, bomb) and spell.
+    </p>
+  </section>
+  <div class="component-wrapper">
+    <section class="magics-menu-box" id="magics-menu-box">
+      <span>SELECT THE KIND OF MAGIC</span>
+      <span id="medkit">
+        <i class="fas fa-medkit"></i>
+      </span>
+      <span id="bomb">
+        <i class="fas fa-bomb"></i>
+      </span>
+    </section>
+    <section class="attack-magics-box hidden" id="attack-magics-box">
+      <span>AVAILABLE MAGICS</span>
+      <ol id="magics-list" class="magics-list">
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+      </ol>
+      <button class="attack-magics-btn" id="attack-magics-btn">BACK</button>
+    </section>
+  </div>
+</body>
+</html>

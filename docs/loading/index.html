@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loading screen</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/index.js" defer></script>
+</head>
+<body>
+  <section>
+    <h1>Component: Loading Screen</h1>
+    <p>
+      This component is used to hide the process of 
+      downloading all page resources. After loading 
+      all resources, the loading screen is hidden.
+    </p>
+    <button id="loading-screen-btn">Show in 5 sec</button>
+  </section>
+  <section class="loading-screen hidden" id="loading-screen">
+    <div class="loading-logo"></div>
+    <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+    </div>
+  </section>
+</body>
+</html>
+

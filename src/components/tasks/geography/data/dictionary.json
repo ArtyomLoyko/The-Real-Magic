@@ -1,0 +1,17 @@
+{
+  "australia": "./images/flags/au.png",
+  "brazil": "./images/flags/br.png",
+  "canada": "./images/flags/ca.png",
+  "germany": "./images/flags/de.png",
+  "spain": "./images/flags/es.png",
+  "israel": "./images/flags/il.png",
+  "italy": "./images/flags/it.png",
+  "japan": "./images/flags/jp.png",
+  "poland": "./images/flags/pl.png",
+  "portugal": "./images/flags/pt.png",
+  "russia": "./images/flags/ru.png",
+  "sweden": "./images/flags/se.png",
+  "turkey": "./images/flags/tr.png",
+  "ukraine": "./images/flags/ua.png",
+  "usa": "./images/flags/us.png"
+}

@@ -1,0 +1,69 @@
+.task-field {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  opacity: 0.9;
+  background: white;
+}
+
+.task-field h4 {
+  font-size: 3rem;
+  margin: 0 0 40px;
+  text-decoration: underline;
+}
+
+.task-field label {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.task-field input {
+  border: 4px ridge #fcc653;
+  border-radius: 15px;
+  outline: none;
+  text-indent: 5px;
+}
+
+.task-field input:focus {
+  border-color: rgb(252, 147, 28);
+}
+
+.answer-field-geography {
+  width: 150px;
+}
+
+.task-field button {
+  width: 250px;
+  height: 130px;
+  background: rgb(241, 205, 105);
+  font-size: 3.3rem;
+  font-weight: bold;
+  outline: none;
+  border: 4px ridge #fcc653;
+  border-radius: 15px;
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+}
+
+.task-field button:hover {
+  background: rgb(252, 147, 28);
+  cursor: pointer;
+}
+
+.flag {
+  width: 300px;
+  height: 170px;  
+  display: flex;
+  margin-bottom: 20px;
+  border: 4px ridge #fcc653;
+  border-radius: 15px;
+}
+
+.hidden {
+  display: none;
+}

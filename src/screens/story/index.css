@@ -1,0 +1,55 @@
+.story-page {
+  height: 100vh;
+  background-image: url('images/backgrounds/main.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-page div {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.story-text {
+  width: 100%;
+  height: 15%;
+  padding: 15px;
+  background: #d3aa5398;
+  font-family: gentium-basic-i;
+  border: 5px ridge #967633;
+  border-radius: 10px;
+  
+}
+
+.story-text p {
+  font-size: 1.8rem;
+  padding: 0;
+  margin: 15px 0 0;
+}
+
+.next-btn {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 0;
+  font-family: gentium-basic-b;
+  font-size: 5vh;
+  border: 3px ridge #fcc653;
+  background-color: #967633;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.next-btn:hover {
+  background: #725924;
+}
+
+.hidden {
+  display: none;
+}

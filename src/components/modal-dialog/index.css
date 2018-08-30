@@ -1,0 +1,126 @@
+.magics-menu-box {
+  width: 15%;
+  display: flex;
+  font-family: gentium-basic-b;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 35%;
+  left: calc(50% - 15% / 2);
+  border-radius: 10px;
+  border: 5px ridge #fcc653;
+  box-sizing: border-box;
+  padding: 5px;
+  background: rgba(128, 128, 128, 0.658);
+  color: yellow;
+  user-select: none;
+}
+
+.magics-menu-box span:first-child {
+  display: flex;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.fa-medkit {
+  display: flex;
+  font-size: 6.5rem;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 5px;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 200ms;
+}
+
+.fa-medkit:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+
+.fa-bomb {
+  display: flex;
+  font-size: 6.5rem;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 10px;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 200ms;
+}
+
+.fa-bomb:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+
+.attack-magics-box {
+  width: 20%;
+  display: flex;
+  font-family: gentium-basic-b;
+  font-size: 1.3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  top: 35%;
+  left: calc(50% - 20% / 2);  
+  border-radius: 10px;
+  border: 5px ridge #fcc653;
+  box-sizing: border-box;
+  padding: 5px;
+  background: rgba(128, 128, 128, 0.658);
+  color: yellow;
+  user-select: none;
+}
+
+.magics-list {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  list-style-position: inside
+}
+
+.magics-list li {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: rgb(4, 4, 110);
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 200ms;
+  text-decoration: underline;
+}
+
+.magics-list li:first-child {
+  margin-top: 10px;
+}
+
+.magics-list li:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transform: scale(1.05, 1.05);
+}
+
+.attack-magics-btn {
+  width: 150px;
+  margin: 20px auto 10px;
+  font-family: gentium-basic-b;
+  font-size: 2rem;
+  border: 3px ridge #fcc653;
+  background-color: #967633;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+}
+
+.attack-magics-btn:hover {
+  background: #725924;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,17 @@
+{
+  "animal": "./audio/listening/animal.mp3",
+  "car": "./audio/listening/car.mp3",
+  "children": "./audio/listening/children.mp3",
+  "coffee": "./audio/listening/coffee.mp3",
+  "computer": "./audio/listening/computer.mp3",
+  "dog": "./audio/listening/dog.mp3",
+  "drink": "./audio/listening/drink.mp3",
+  "family": "./audio/listening/family.mp3",
+  "fresh": "./audio/listening/fresh.mp3",
+  "girl": "./audio/listening/girl.mp3",
+  "hand": "./audio/listening/hand.mp3",
+  "home": "./audio/listening/home.mp3",
+  "sport": "./audio/listening/sport.mp3",
+  "telephone": "./audio/listening/telephone.mp3",
+  "war": "./audio/listening/war.mp3"
+}

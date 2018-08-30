@@ -1,0 +1,248 @@
+.battle-page {
+  height: 100vh;
+  font-family: gentium-basic-b;
+  position: relative;
+  background-image: url('images/backgrounds/background2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+}
+
+.battle-info {
+  width: 90%;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.info-box > span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #fcc653;
+  text-align: start;
+}
+
+.info-box:last-child > span {
+  text-align: end;
+}
+
+.health-info {
+  width: 200px;
+  height: 25px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 13px;
+  border: 4px ridge #fcc653;
+  position: relative;
+}
+
+.health-info span {
+  position: absolute;
+  color: yellow;
+}
+
+.hero-health-scale, 
+.monster-health-scale {
+  width: 100%;
+  height: 100%;
+  background: red;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+.monster-health-scale {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.current-level {
+  width: 110px;
+  height: 100%;
+  padding-top: 20px;
+  font-size: 1.5rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: #fcc653;
+  text-align: center;
+  color: rgb(0, 0, 37);
+}
+
+.current-level span {
+  display: block;
+  font-size: 5rem;
+}
+
+.hero {
+  height: 350px;
+  position: absolute;
+}
+
+.hero-idle1 {
+  top: 45%;
+  left: -75px;
+  width: 512px;
+  background-image: url('images/character/Idle1.png');
+  animation: play-Idle1 .8s steps(5) infinite;
+}
+
+.hero-attack1 {
+  top: 45%;
+  left: -75px;
+  width: 512px;
+  background-image: url('images/character/Attack1.png');
+  animation: play-Attack1 1.5s steps(20) 1;
+}
+@keyframes play-Idle1 {
+  from { background-position:    0px; }
+    to { background-position: -2560px; }
+}
+
+@keyframes play-Attack1 {
+  from { background-position:    0px; }
+    to { background-position: -10240px; }
+}
+
+.hero-idle2  {
+  top: 54%;
+  left: -40px;
+  width: 350px;
+  background-image: url('images/character/Idle2.png');
+  animation: play-Idle2 1.5s steps(12) infinite;
+}
+
+.hero-attack2 {
+  top: 54%;
+  left: -40px;
+  width: 350px;
+  background-image: url('images/character/Attack2.png');
+  animation: play-Attack2 1.2s steps(12) 1;
+}
+
+@keyframes play-Idle2 {
+  from { background-position:    0px; }
+    to { background-position: -4200px; }
+}
+
+@keyframes play-Attack2 {
+  from { background-position:    0px; }
+    to { background-position: -4200px; }
+}
+
+.monster {
+  height: 170px;
+  position: absolute;
+  top: 64%;
+  right: 50px;
+}
+
+.golem-idle {
+  width: 221px;
+  background-image: url('images/monsters/idle/golem-idle.png');
+  animation: golem-Idle .8s steps(5) infinite;
+}
+
+.golem-attack {
+  width: 221px;
+  background-image: url('images/monsters/attack/golem-attack.png');
+  animation: golem-Attack 1.2s steps(11) 1; 
+}
+
+@keyframes golem-Idle {
+  from { background-position:    0px; }
+    to { background-position: -1104px; }
+}
+
+@keyframes golem-Attack {
+  from { background-position:    0px; }
+    to { background-position: -2428px; }
+}
+
+.shade-idle {
+  width: 201px;
+  background-image: url('images/monsters/idle/shade-idle.png');
+  animation: shade-Idle .8s steps(4) infinite;
+}
+
+.shade-attack {
+  width: 206px;
+  background-image: url('images/monsters/attack/shade-attack.png');
+  animation: shade-Attack 1s steps(7) 1;
+}
+
+@keyframes shade-Idle {
+  from { background-position: 0px; }
+  to { background-position: -802px; }
+}
+
+@keyframes shade-Attack {
+  from { background-position: 0px; }
+  to { background-position: -1404px; }
+}
+
+.werewolf-idle {
+  width: 289px;
+  background-image: url('images/monsters/idle/werewolf-idle.png');
+  animation: werewolf-Idle .8s steps(4) infinite;
+}
+
+.werewolf-attack {
+  width: 289px;
+  background-image: url('images/monsters/attack/werewolf-attack.png');
+  animation: werewolf-Attack 1s steps(7) 1;
+}
+
+@keyframes werewolf-Idle {
+  from { background-position: 0px; }
+  to { background-position: -1154px; }
+}
+
+@keyframes werewolf-Attack {
+  from { background-position: 0px; }
+  to { background-position: -2020px; }
+}
+
+.yeti-idle {
+  width: 218px;
+  background-image: url('images/monsters/idle/yeti-idle.png');
+  animation: yeti-Idle .8s steps(4) infinite;
+}
+
+.yeti-attack {
+  width: 218px;
+  background-image: url('images/monsters/attack/yeti-attack.png');
+  animation: yeti-Attack 1s steps(7) 1;
+}
+
+@keyframes yeti-Idle {
+  from { background-position: 0px; }
+  to { background-position: -871px; }
+}
+
+@keyframes yeti-Attack {
+  from { background-position: 0px; }
+  to { background-position: -1524px; }
+}
+
+.heart1,
+.heart2 {
+  display: inline-flex;
+  font-size: 1.8rem;
+  margin-bottom: 2px;
+  margin-right: 15px;
+  color: red;
+}
+
+.heart2 {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+.hidden {
+  display: none;
+}

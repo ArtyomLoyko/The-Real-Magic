@@ -1,0 +1,34 @@
+<main class="intro-page hidden">
+  <audio id="game-intro-audio" src="assets/audio/game-intro-audio.mp3" loop preload></audio>
+  <section class="intro-content">
+    <div class="heroes">
+      <span>Select Hero:</span>
+      <div>
+        <label>
+          <input type="radio" class="first-hero" name="hero" value="first-hero" checked>
+          <img src="images/character/Character1.png">
+        </label>
+        <label>
+          <input type="radio" class="second-hero" name="hero" value="second-hero">
+          <img src="images/character/Character2.png">
+        </label>
+      </div>
+    </div>
+    <div class="difficulty-block">
+      <p>Select Difficulty:</p>
+      <label>
+        <input type="radio" name="difficulty" value="easy" checked>
+        <span>Easy</span>
+      </label>
+      <label>
+        <input type="radio" name="difficulty" value="medium">
+        <span>Medium</span>
+      </label>
+      <label>
+        <input type="radio" name="difficulty" value="hard">
+        <span>Hard</span>
+      </label>
+    </div>
+    <button class="next-btn" id="introNextBtn">NEXT</button>
+  </section>
+</main>
