@@ -3,7 +3,7 @@ import { sample, findKey } from 'lodash';
 import $ from 'jquery';
 import dictionary from './data/dictionary.json';
 
-export default function geographyTask() {
+export default function geographyTask(handleEnter) {
   this.selectedMagic = 'Crazy Geography';
   this.checkedResult = null;
 
@@ -22,8 +22,13 @@ export default function geographyTask() {
   taskField.classList.remove('hidden');
   flagImg.setAttribute('src', src);  
 
-  $(spellBtnGeography).one('click', () => {
+  const spellBtnHandler = () => {
+    $(document).unbind('keydown');
+    spellBtnGeography.removeEventListener('click', spellBtnHandler);
     this.checkedResult = country === entryField.value.toLowerCase();
     this.checkResult();
-  });
+  };
+
+  spellBtnGeography.addEventListener('click', spellBtnHandler);
+  handleEnter(spellBtnHandler);
 }

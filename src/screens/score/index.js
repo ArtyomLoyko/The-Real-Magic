@@ -1,8 +1,9 @@
 import './index.css';
 
 export default class TableRecordsGenerator {
-  constructor(audio) {
+  constructor(audio, keyboard) {
     this.audio = audio;
+    this.keyboard = keyboard;
   }
 
   registerResult(difficulty, name, email, age, level, spellsDone) {
@@ -19,27 +20,26 @@ export default class TableRecordsGenerator {
     }
 
     recordTable[difficulty].push({
-      name: name,  
-      email: email, 
-      age: age,
-      level: level,
-      spellsDone: spellsDone,
+      name,  
+      email, 
+      age,
+      level,
+      spellsDone,
     });
 
     localStorage.recordTable = JSON.stringify(recordTable);
   }
 
-  getResultsFor(difficulty) {
+  static getResultsFor(difficulty) {
     return JSON.parse(localStorage.recordTable)[difficulty];
   }
 
-  getTopResults(results) {
+  static getTopResults(results) {
     results.sort((a, b) => b.spellsDone - a.spellsDone);
-
     return results.slice(0, 10);
   }
 
-  renderResults(results, baseElement) {
+  static renderResults(results, baseElement) {
     if (!results.length) {
       baseElement.textContent = 'no results yet';
       baseElement.style.marginLeft = '0px';
@@ -48,9 +48,9 @@ export default class TableRecordsGenerator {
       results.forEach((result) => {
         const element = document.createElement("li");
 
-        element.textContent = `name: ${result.name}; age: ${result.age}; 
-          email: ${result.email}; your level is: ${result.level};  
-          you have comleted: ${result.spellsDone} spells;`
+        element.textContent = `name: ${result.name}, age: ${result.age}, 
+          email: ${result.email}, your level is: ${result.level},  
+          you have comleted: ${result.spellsDone} spells.`;
         baseElement.appendChild(element);
       });
     }
@@ -59,22 +59,27 @@ export default class TableRecordsGenerator {
   showRecordTable() {
     const recordTable = document.getElementById('record-page');
     const restartBtn = document.getElementById('restart-btn');
-    const startPage = document.querySelector('.wrapper');
-    const resultsEasy = this.getTopResults(this.getResultsFor('easy'));
-    const resultsMedium = this.getTopResults(this.getResultsFor('medium'));
-    const resultsHard = this.getTopResults(this.getResultsFor('hard'));
+    const resultsEasy = TableRecordsGenerator.getTopResults(
+      TableRecordsGenerator.getResultsFor('easy'),
+    );
+    const resultsMedium = TableRecordsGenerator.getTopResults(
+      TableRecordsGenerator.getResultsFor('medium'),
+    );
+    const resultsHard = TableRecordsGenerator.getTopResults(
+      TableRecordsGenerator.getResultsFor('hard'),
+    );
 
-    this.renderResults(resultsEasy, document.getElementById('easy-result'));
-    this.renderResults(resultsMedium, document.getElementById('medium-result'));
-    this.renderResults(resultsHard, document.getElementById('hard-result'));
+    TableRecordsGenerator.renderResults(resultsEasy, document.getElementById('easy-result'));
+    TableRecordsGenerator.renderResults(resultsMedium, document.getElementById('medium-result'));
+    TableRecordsGenerator.renderResults(resultsHard, document.getElementById('hard-result'));
     this.audio.startRecordsAudio();
 
-    restartBtn.addEventListener('click', () => {
+    const restartBtnHandler = () => {
       location.reload();
-      // this.audio.stopRecordsAudio();
-      // recordTable.classList.add('hidden');
-      // startPage.classList.remove('hidden');
-    });
+    };
+
+    restartBtn.addEventListener('click', restartBtnHandler);
+    this.keyboard.handleEnter(restartBtnHandler);
 
     recordTable.classList.remove('hidden');
   }

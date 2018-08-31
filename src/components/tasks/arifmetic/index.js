@@ -3,7 +3,7 @@ import { random, sample } from 'lodash';
 import $ from 'jquery';
 import GameData from './../../../public/js/gameData';
 
-export default function arifmeticTask() {
+export default function arifmeticTask(handleEnter) {
   this.selectedMagic = 'Mathematical Tornado';
   this.checkedResult = null;
   
@@ -44,10 +44,15 @@ export default function arifmeticTask() {
   answerFieldArifmetic.value = '';
   taskField.classList.remove('hidden');
 
-  $(spellBtnArifmetic).one('click', () => {
+  const spellBtnHandler = () => {
+    $(document).unbind('keydown');
+    spellBtnArifmetic.removeEventListener('click', spellBtnHandler);
     const answer = eval(`${first} ${operator} ${second}`);
 
     this.checkedResult = +entryField.value === answer;
     this.checkResult();
-  });
+  };
+
+  spellBtnArifmetic.addEventListener('click', spellBtnHandler);
+  handleEnter(spellBtnHandler);
 }

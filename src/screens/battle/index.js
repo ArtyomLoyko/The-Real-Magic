@@ -3,7 +3,11 @@ import 'babel-polyfill';
 import { sample } from 'lodash';
 
 export default class BattleGenerator {
-  constructor(gameData, magics, magicsList, currentHero, currentMonster, charactersAnimation, gameEnding, records, audio) {
+  constructor(
+    gameData, magics, magicsList, currentHero, 
+    currentMonster, charactersAnimation, gameEnding, 
+    records, audio, keyboard,
+  ) {
     this.gameData = gameData;
     this.magics = magics;
     this.magicsList = magicsList;
@@ -13,6 +17,7 @@ export default class BattleGenerator {
     this.records = records;
     this.gameEnding = gameEnding;
     this.audio = audio;
+    this.keyboard = keyboard;
     this.currentLevel = 0;
     this.battlePage = document.querySelector('.battle-page');
 
@@ -74,7 +79,7 @@ export default class BattleGenerator {
     };
 
     const healthTask = this.magics.availableMagics[0].task.bind(this);
-    healthTask();
+    healthTask(this.keyboard.handleEnter.bind(this.keyboard));
   }
 
   useAttack() {
@@ -187,7 +192,7 @@ export default class BattleGenerator {
     this.records.registerResult(
       this.gameData.difficulty, this.gameData.name,
       this.gameData.email, this.gameData.age,
-      this.gameData.level, this.gameData.spellsDone,
+      this.currentLevel, this.gameData.spellsDone,
     );
     this.audio.stopBattleAudio();
     this.battlePage.classList.add('hidden');

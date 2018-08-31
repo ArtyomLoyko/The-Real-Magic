@@ -1,9 +1,11 @@
 import './index.css';
+import $ from 'jquery';
 
 export default class StoriesGenerator {
-  constructor(battle, audio) {
+  constructor(battle, audio, keyboard) {
     this.battle = battle;
     this.audio = audio;
+    this.keyboard = keyboard;
     this.storyPage = document.querySelector('.story-page');
     this.countLevels = 0;
   }
@@ -15,24 +17,29 @@ export default class StoriesGenerator {
     this.audio.startStoriesAudio();
   }
 
-  addEventOnNextBtn() {
+  addEventOnNextBtn() { 
     const nextBtn = document.getElementById('stories-next-btn');
 
-    nextBtn.addEventListener('click', () => {
+    const nextBtnHandler = () => {
+      $(document).unbind('keydown');
+  
       this.countLevels += 1;
       this.addStory(this.countLevels);
-
+  
       if (this.countLevels === 5) {
         this.countLevels = 0;
       }
-
+  
       this.storyPage.classList.add('hidden');
       this.audio.stopStoriesAudio();
       this.battle.createBattleField();
       this.battle.addFighters();
       this.audio.startBattleAudio();
       this.battle.startBattle();
-    });
+    };
+
+    nextBtn.addEventListener('click', nextBtnHandler);
+    this.keyboard.handleEnter(nextBtnHandler);
   }
 
   addStory(story) {

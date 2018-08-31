@@ -4,7 +4,7 @@ import $ from 'jquery';
 import GameData from './../../../public/js/gameData';
 import dictionary from './data/dictionary.json';
 
-export default function translateTask() {
+export default function translateTask(handleEnter) {
   this.selectedMagic = 'English Power';
   this.checkedResult = null;
 
@@ -23,8 +23,14 @@ export default function translateTask() {
   taskField.classList.remove('hidden');
   englishWord.textContent = `${word}: `;
 
-  $(spellBtnTranslate).one('click', () => {
+  const spellBtnHandler = () => {
+    $(document).unbind('keydown');
+    spellBtnTranslate.removeEventListener('click', spellBtnHandler);
+
     this.checkedResult = wordTranslate.some(word => word === entryField.value.toLowerCase());
     this.checkResult();
-  });
+  };
+
+  spellBtnTranslate.addEventListener('click', spellBtnHandler);
+  handleEnter(spellBtnHandler);
 }

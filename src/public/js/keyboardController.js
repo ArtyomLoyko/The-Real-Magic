@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export default class KeyboardController {
   constructor() {
     this.ENTER = 13;
@@ -7,5 +9,21 @@ export default class KeyboardController {
     this.ARROW_DOWN = 40;
     this.ARROW_RIGHT = 39;
     this.ARROW_LEFT = 37;
+  }
+
+  handleEnter(handler) {
+    $(document).bind('keydown', (event) => {
+      if (event.keyCode === this.ENTER) {
+        handler();
+      }
+    });
+  }
+
+  handleEsc(handler) {
+    $(document).bind('keydown', (event) => {
+      if (event.keyCode === this.ESCAPE) {
+        handler();
+      }
+    });
   }
 }

@@ -1,8 +1,10 @@
 import './index.css';
+import $ from 'jquery';
 
 export default class GameEnding {
-  constructor(records) {
+  constructor(records, keyboard) {
     this.records = records;
+    this.keyboard = keyboard;
     this.endWindow = document.getElementById('end-window');
   }
 
@@ -14,10 +16,14 @@ export default class GameEnding {
     userNameEnd.textContent = userName;
     this.showEndingField();
 
-    highscrTblBtn.addEventListener('click', () => {
+    const highscrTblBtnHandler = () => {
+      $(document).unbind('keydown');
       this.hideEndingField();
       this.records.showRecordTable();
-    });
+    };
+
+    highscrTblBtn.addEventListener('click', highscrTblBtnHandler);
+    this.keyboard.handleEnter(highscrTblBtnHandler);
   }
 
   showEndingField() {

@@ -3,7 +3,7 @@ import { sample, findKey } from 'lodash';
 import $ from 'jquery';
 import dictionary from './data/dictionary.json';
 
-export default function listeningTask() {
+export default function listeningTask(handleEnter) {
   this.selectedMagic = 'Keen Ear';
   this.checkedResult = null;
 
@@ -27,9 +27,15 @@ export default function listeningTask() {
     taskAudio.play();
   });
 
-  $(spellBtnListening).one('click', () => {
+  const spellBtnHandler = () => {
+    $(document).unbind('keydown');
+    spellBtnListening.removeEventListener('click', spellBtnHandler);
+
     this.checkedResult = word === entryField.value.toLowerCase();
     this.checkResult();
     battleAudio.play();
-  });
+  };
+
+  spellBtnListening.addEventListener('click', spellBtnHandler);
+  handleEnter(spellBtnHandler);
 }

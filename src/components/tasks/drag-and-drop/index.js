@@ -1,14 +1,16 @@
 import './index.css';
 import 'jquery-ui-sortable-npm';
+
 import {
   sample,
   findKey,
   shuffle,
 } from 'lodash';
+
 import $ from 'jquery';
 import dictionary from './data/dictionary.json';
 
-export default function dragAndDropTask() {
+export default function dragAndDropTask(handleEnter) {
   this.selectedMagic = 'Magic Word';
   this.checkedResult = null;
 
@@ -16,9 +18,7 @@ export default function dragAndDropTask() {
   const taskField = document.getElementById('task-field-drag');
   const spellBtnDrag = document.getElementById('spell-btn-drag');
   const wordLetters = sample(dictionary);
-  const word = findKey(dictionary, (word) => {
-    return word === wordLetters;
-  });
+  const word = findKey(dictionary, word => word === wordLetters);
   
   $(wordBox).empty();
   shuffle(wordLetters).forEach((i) => {
@@ -28,7 +28,9 @@ export default function dragAndDropTask() {
   $(wordBox).disableSelection();
   taskField.classList.remove('hidden');
 
-  $(spellBtnDrag).one('click', () => {
+  const spellBtnHandler = () => {
+    $(document).unbind('keydown');
+    spellBtnDrag.removeEventListener('click', spellBtnHandler);
     let currentWord = '';
 
     Array.from(wordBox.children).forEach(letter => {
@@ -36,5 +38,8 @@ export default function dragAndDropTask() {
     });
     this.checkedResult = currentWord === word;
     this.checkResult();
-  });
+  };
+
+  spellBtnDrag.addEventListener('click', spellBtnHandler);
+  handleEnter(spellBtnHandler);
 }
